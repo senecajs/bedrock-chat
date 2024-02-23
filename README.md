@@ -43,15 +43,11 @@ _None._
 
 ## Action Patterns
 
-* [accept:entry,biz:refer](#-acceptentrybizrefer-)
-* [biz:refer,create:entry](#-bizrefercreateentry-)
-* [biz:refer,ensure:entry](#-bizreferensureentry-)
-* [biz:refer,give:award](#-bizrefergiveaward-)
-* [biz:refer,load:entry](#-bizreferloadentry-)
-* [biz:refer,load:rules](#-bizreferloadrules-)
-* [biz:refer,lost:entry](#-bizreferlostentry-)
-* [biz:refer,update:occur](#-bizreferupdateoccur-)
-* [biz:refer,update:entry](#-bizreferupdateentry-)
+* [build:prompt,chat:bedrock,sys:chat](#-buildpromptchatbedrocksyschat-)
+* [chat:bedrock,invoke:model,sys:chat](#-chatbedrockinvokemodelsyschat-)
+* [chat:bedrock,submit:query,sys:chat](#-chatbedrocksubmitquerysyschat-)
+* [embed:opensearch,sys:embed](#-embedopensearchsysembed-)
+* [sys:chat](#-syschat-)
 
 
 <!--END:action-list-->
@@ -61,63 +57,35 @@ _None._
 
 ## Action Descriptions
 
-### &laquo; `accept:entry,biz:refer` &raquo;
+### &laquo; `build:prompt,chat:bedrock,sys:chat` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `biz:refer,create:entry` &raquo;
-
-Create referral entry.
-
-
-
-----------
-### &laquo; `biz:refer,ensure:entry` &raquo;
+### &laquo; `chat:bedrock,invoke:model,sys:chat` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `biz:refer,give:award` &raquo;
+### &laquo; `chat:bedrock,submit:query,sys:chat` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `biz:refer,load:entry` &raquo;
+### &laquo; `embed:opensearch,sys:embed` &raquo;
 
 No description provided.
 
 
 
 ----------
-### &laquo; `biz:refer,load:rules` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `biz:refer,lost:entry` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `biz:refer,update:occur` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `biz:refer,update:entry` &raquo;
+### &laquo; `sys:chat` &raquo;
 
 No description provided.
 

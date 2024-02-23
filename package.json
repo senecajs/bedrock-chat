@@ -1,14 +1,14 @@
 {
   "name": "@seneca/bedrock-chat",
-  "version": "0.6.0",
-  "main": "dist/refer.js",
+  "version": "0.0.1",
+  "main": "dist/BedrockChat.js",
   "type": "commonjs",
-  "types": "dist/refer.d.ts",
-  "description": "User Referral business logic plugin for the Seneca platform.",
+  "types": "dist/BedrockChat.d.ts",
+  "description": "Seneca Plugin for the AWS Bedrock Chat API.",
   "homepage": "https://github.com/senecajs/seneca-bedrock-chat",
   "keywords": [
     "seneca",
-    "refer"
+    "BedrockChat"
   ],
   "author": "Richard Rodger - richardrodger.com",
   "repository": {

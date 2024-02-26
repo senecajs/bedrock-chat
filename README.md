@@ -46,7 +46,6 @@ _None._
 * [build:prompt,chat:bedrock,sys:chat](#-buildpromptchatbedrocksyschat-)
 * [chat:bedrock,invoke:model,sys:chat](#-chatbedrockinvokemodelsyschat-)
 * [chat:bedrock,submit:query,sys:chat](#-chatbedrocksubmitquerysyschat-)
-* [embed:opensearch,sys:embed](#-embedopensearchsysembed-)
 * [sys:chat](#-syschat-)
 
 
@@ -72,13 +71,6 @@ No description provided.
 
 ----------
 ### &laquo; `chat:bedrock,submit:query,sys:chat` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `embed:opensearch,sys:embed` &raquo;
 
 No description provided.
 

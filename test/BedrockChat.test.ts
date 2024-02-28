@@ -7,41 +7,45 @@ import Seneca from 'seneca'
 import BedrockChatDoc from '../src/BedrockChatDoc'
 import BedrockChat from '../src/BedrockChat'
 
+// NOTE: requires valid AWS_PROFILE environment variable
+const LOCAL = !!process.env.AWS_PROFILE
 
 
 describe('BedrockChat', () => {
+
   test('happy', async () => {
+    expect(BedrockChat).toBeDefined()
     expect(BedrockChatDoc).toBeDefined()
-    const seneca = Seneca({ legacy: false })
-      .test()
-      .use('promisify')
-      .use('entity')
-      .use(BedrockChat)
-    await seneca.ready()
+    const seneca = await makeSeneca()
+    expect(seneca).toBeDefined()
   })
 
+
+  test('basic-query', async () => {
+    if (!LOCAL) return;
+
+    const seneca = await makeSeneca()
+    let res1 = await seneca.post('sys:chat,submit:query', {
+      query: 'what is devrel?',
+    })
+
+    // console.log('res1', res1)
+
+    expect(res1).toMatchObject({ ok: true })
+  })
 })
 
 
-/*
+
 async function makeSeneca() {
   const seneca = Seneca({ legacy: false })
+    // .test('print')
     .test()
     .use('promisify')
     .use('entity')
-    .use('entity-util', { when: { active: true } })
-
-  await makeBasicRules(seneca)
-
-  seneca.use(BedrockChat)
-
-  await makeMockActions(seneca)
-
+    .use(BedrockChat)
   await seneca.ready()
-
-  // print all message patterns
-  // console.log(seneca.list())
 
   return seneca
 }
-*/
+

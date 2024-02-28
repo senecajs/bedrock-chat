@@ -1,8 +1,14 @@
 # @seneca/bedrock-chat
 
-> _Seneca Refer_ is a plugin for [Seneca](http://senecajs.org)
+> _Seneca Bedrock Chat_ is a plugin for [Seneca](http://senecajs.org)
 
-    User referral business logic plugin for the Seneca platform.
+Expose AWS Bedrock LLM Chat API via standard `sys:chat` message patterns.
+
+This plugin is part of a family of plugins that wrap LLM Chat APIs.
+
+
+Production Example: [Voxgig Podmind](github.com/voxgig/podmind) 
+
 
 [![npm version](https://img.shields.io/npm/v/@seneca/bedrock-chat.svg)](https://npmjs.com/package/@seneca/bedrock-chat)
 [![build](https://github.com/senecajs/seneca-bedrock-chat/actions/workflows/build.yml/badge.svg)](https://github.com/senecajs/seneca-refer/actions/workflows/build.yml)
@@ -14,27 +20,42 @@
 | ![Voxgig](https://www.voxgig.com/res/img/vgt01r.png) | This open source module is sponsored and supported by [Voxgig](https://www.voxgig.com). |
 | ---------------------------------------------------- | --------------------------------------------------------------------------------------- |
 
+
 ## Install
 
 ```sh
 $ npm install @seneca/bedrock-chat
 ```
 
+
 ## Quick Example
 
 ```js
-// Setup - get the key value (<SECRET>) separately from a vault or
-// environment variable.
-Seneca().use('refer', {})
+seneca.use('bedrock-chat')
 
-TODO
+let chatRes = await seneca.post('sys:chat,submit:query', {
+  query: 'what is devrel?',
+})
+// ==== { ok: true, answer: 'DevRel stands for Developer Relations...' }
 ```
+
+## More Examples
+
+Review the [unit tests](test/BedrockChat.test.ts) for more examples.
+
+
 
 <!--START:options-->
 
+
 ## Options
 
-_None._
+* `debug` : boolean
+* `global` : boolean
+* `bedrock` : object
+* `config` : object
+* `init$` : boolean
+
 
 <!--END:options-->
 
@@ -43,10 +64,9 @@ _None._
 
 ## Action Patterns
 
-* [build:prompt,chat:bedrock,sys:chat](#-buildpromptchatbedrocksyschat-)
-* [chat:bedrock,invoke:model,sys:chat](#-chatbedrockinvokemodelsyschat-)
-* [chat:bedrock,submit:query,sys:chat](#-chatbedrocksubmitquerysyschat-)
 * [sys:chat](#-syschat-)
+* [sys:chat,chat:bedrock,invoke:model](#-syschatchatbedrockinvokemodel-)
+* [sys:chat,chat:bedrock,submit:query](#-syschatchatbedrocksubmitquery-)
 
 
 <!--END:action-list-->
@@ -56,27 +76,6 @@ _None._
 
 ## Action Descriptions
 
-### &laquo; `build:prompt,chat:bedrock,sys:chat` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `chat:bedrock,invoke:model,sys:chat` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `chat:bedrock,submit:query,sys:chat` &raquo;
-
-No description provided.
-
-
-
-----------
 ### &laquo; `sys:chat` &raquo;
 
 No description provided.
@@ -84,11 +83,34 @@ No description provided.
 
 
 ----------
+### &laquo; `sys:chat,chat:bedrock,invoke:model` &raquo;
+
+Invoke LLM with a prompt.
+
+
+#### Parameters
+
+
+* __prompt__ : _string_
+* __config__ : _object_
+
+
+----------
+### &laquo; `sys:chat,chat:bedrock,submit:query` &raquo;
+
+Submit a chat query, optionally specifying chat provider.
+
+
+#### Parameters
+
+
+* __query__ : _string_
+
+
+----------
 
 
 <!--END:action-desc-->
-
-## More Examples
 
 ## Motivation
 

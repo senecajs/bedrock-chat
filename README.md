@@ -7,15 +7,15 @@ Expose AWS Bedrock LLM Chat API via standard `sys:chat` message patterns.
 This plugin is part of a family of plugins that wrap LLM Chat APIs.
 
 
-Production Example: [Voxgig Podmind](github.com/voxgig/podmind) 
+Production Example: [Voxgig Podmind](https://github.com/voxgig/podmind) 
 
 
 [![npm version](https://img.shields.io/npm/v/@seneca/bedrock-chat.svg)](https://npmjs.com/package/@seneca/bedrock-chat)
-[![build](https://github.com/senecajs/seneca-bedrock-chat/actions/workflows/build.yml/badge.svg)](https://github.com/senecajs/seneca-refer/actions/workflows/build.yml)
-[![Coverage Status](https://coveralls.io/repos/github/senecajs/seneca-bedrock-chat/badge.svg?branch=main)](https://coveralls.io/github/senecajs/seneca-refer?branch=main)
-[![Known Vulnerabilities](https://snyk.io/test/github/senecajs/seneca-bedrock-chat/badge.svg)](https://snyk.io/test/github/senecajs/seneca-refer)
-[![DeepScan grade](https://deepscan.io/api/teams/5016/projects/20872/branches/581541/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5016&pid=20872&bid=581541)
-[![Maintainability](https://api.codeclimate.com/v1/badges/8242b80adb8acb685afd/maintainability)](https://codeclimate.com/github/senecajs/seneca-bedrock-chat/maintainability)
+[![build](https://github.com/senecajs/seneca-bedrock-chat/actions/workflows/build.yml/badge.svg)](https://github.com/senecajs/seneca-bedrock-chat/actions/workflows/build.yml)
+[![Coverage Status](https://coveralls.io/repos/github/senecajs/seneca-bedrock-chat/badge.svg?branch=main)](https://coveralls.io/github/senecajs/seneca-bedrock-chat?branch=main)
+[![Known Vulnerabilities](https://snyk.io/test/github/senecajs/seneca-bedrock-chat/badge.svg)](https://snyk.io/test/github/senecajs/seneca-bedrock-chat)
+[![DeepScan grade](https://deepscan.io/api/teams/5016/projects/26559/branches/847621/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5016&pid=26559&bid=847621)
+[![Maintainability](https://api.codeclimate.com/v1/badges/06a44ac68c7be4a46c67/maintainability)](https://codeclimate.com/github/senecajs/seneca-bedrock-chat/maintainability)
 
 | ![Voxgig](https://www.voxgig.com/res/img/vgt01r.png) | This open source module is sponsored and supported by [Voxgig](https://www.voxgig.com). |
 | ---------------------------------------------------- | --------------------------------------------------------------------------------------- |

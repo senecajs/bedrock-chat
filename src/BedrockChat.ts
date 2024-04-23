@@ -5,7 +5,7 @@ import { BedrockRuntimeClient, InvokeModelCommand } from '@aws-sdk/client-bedroc
 import { Gubu } from 'gubu'
 
 
-const { Open, Default } = Gubu
+const { Open, Default, One } = Gubu
 
 
 type BedrockChatOptions = {
@@ -73,8 +73,14 @@ function BedrockChat(this: any, options: BedrockChatOptions) {
     const prompt = msg.prompt
     const config = msg.config
 
-    const { model, modelSettings } = config
-    const { maxTokens, temperature } = modelSettings
+    let { model, modelSettings } = config
+    modelSettings = Object
+      .entries(modelSettings)
+      .filter(n => null != n[1])
+      .reduce((a: any, n) => (a[n[0]] = n[1], a), {})
+    // console.log('MS', modelSettings)
+
+    const { maxTokens, temperature, topP } = modelSettings
 
     const invokeParams = {
       modelId: model,
@@ -82,7 +88,7 @@ function BedrockChat(this: any, options: BedrockChatOptions) {
         maxTokens,
         temperature,
         prompt,
-        topP: 1.0
+        topP,
       }),
       accept: 'application/json',
       contentType: 'application/json'
@@ -91,7 +97,16 @@ function BedrockChat(this: any, options: BedrockChatOptions) {
     const response = await client.send(new InvokeModelCommand(invokeParams))
 
     const result = JSON.parse(Buffer.from(response.body).toString())
-    const answer = result.completions[0].data.text
+    // console.log('RES', result)
+
+    let answer =
+      result.generation ?
+        result.generation :
+        result.completions ?
+          result.completions[0].data.text :
+          'Unable to answer.'
+
+    answer = answer.replace(/\<\|.*/s, '')
 
     return {
       ok: true,
@@ -124,9 +139,10 @@ const defaults: BedrockChatOptions = {
   config: Open({
     model: 'ai21.j2-ultra-v1',
     modelSettings: Open({
-      maxTokens: 1525,
-      temperature: 0.7,
-      region: 'us-east-1'
+      temperature: One(Default(0.7), null),
+      region: One(Default('us-east-1'), null),
+      maxTokens: One(Default(1525), null),
+      topP: One(Default(1.0), null),
     }),
   }),
 }

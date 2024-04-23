@@ -1,6 +1,6 @@
 {
   "name": "@seneca/bedrock-chat",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/BedrockChat.js",
   "type": "commonjs",
   "types": "dist/BedrockChat.d.ts",
@@ -42,14 +42,14 @@
     "@seneca/doc": "^7.2.0",
     "@seneca/maintain": "^0.1.0",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.21",
+    "@types/node": "^20.12.7",
     "dotenv": "^16.4.5",
-    "esbuild": "^0.20.1",
+    "esbuild": "^0.20.2",
     "esbuild-jest": "^0.5.0",
     "jest": "^29.7.0",
     "prettier": "3.2.5",
     "seneca-msg-test": "^4.1.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "@aws-sdk/client-bedrock-runtime": ">=3",

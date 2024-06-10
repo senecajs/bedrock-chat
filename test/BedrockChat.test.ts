@@ -39,6 +39,7 @@ describe('BedrockChat', () => {
     if (!LOCAL) return;
 
     const seneca = await makeSeneca({
+      /*
       config: {
         model: 'meta.llama3-8b-instruct-v1:0',
         modelSettings: {
@@ -47,7 +48,8 @@ describe('BedrockChat', () => {
           top_p: 0.9,
           max_gen_len: 555,
         }
-      }
+        }
+        */
     })
     let res1 = await seneca.post('sys:chat,submit:query', {
       query: `
